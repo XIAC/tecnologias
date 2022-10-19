@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT 1</title>
+    <script>
+            // console.log("Uno");
+            // document.write("<h1>Tecnologias en Internet</h1>");
+            // var a = 10; // declarado e inicializado
+            // var A = 3;
+            // var b; // declarando
+            // b = 2; // inicializando 
+            // document.write("<h1>Ejemplo 1</h1>" + a);
+        //OPERADORES 
+        // 1. Operadores Aritméticos
+            //suma//resta//multiplicacion//division
+            // var num1 = Number(window.prompt("Ingrese numero 1"));
+            // var num2 = Number(window.prompt("Ingrese numero 2"));
+            // document.write(num1);
+            // document.write(num2);
+            // document.write("La suma es: "+(num1 + num2));
+            // document.write("<br/>");
+            // document.write("La multiplicacion es: "+(num1 * num2));
+            // document.write("<br/>");
+            // document.write("La division es: "+(num1 / num2));
+            // document.write("<br/>");
+            // document.write("La resta es: "+(num1 - num2));
+            // document.write("<br/>");
+        // 2. Operadores de comparacion
+        //  ==  > < 
+            // document.write((num1 == num2));
+            // document.write("<br/>");
+            // document.write((num1 > num2));
+            // document.write("<br/>");
+            // document.write((num1 < num2));
+        // 3. Operadores lógicos o relacionales (AND y OR)
+            // TABLA DE VERDAD AND
+            // var a = 1;
+            // var b = 12;
+            // var c = 22;
+            // var d = 4;
+            // document.write("<br/>");
+            // document.write((a < b) && (c < d)); // solucion
+            //                  //V  && V  = V
+            // // V & V = V
+            // // V & F = F
+            // // F & V = F
+            // // F & F = F
+            // // OR
+            // document.write("<br/>");
+            // document.write((a > b) || (c < d)); // solucion
+                        //  F   ||  F = f
+            // V || V = V
+            // V || F = V
+            // F || V = V
+            // F || F = F
+        // 4. Operadores de asignación
+            // var x = 30;
+            // document.write("<br/>");
+            // document.write((x+= 5));
+            // document.write("<br/>");
+            // document.write((x-= 5));
+            // document.write("<br/>");
+            // document.write((x*= 5));
+            // document.write("<br/>");
+            // document.write((x/= 5));
+        // 5. Operadores Condicionales
+            // var a = 20;
+            // var b = 30;
+            // // (condicion) ?  true : false;
+            // var resultado = (a > b) ? true : false ;
+            // document.write(resultado);
+        
+        // CONST, VAR, LET
+
+        // CONST -> NO CAMBIA SU VALOR
+        // VAR -> un dato que puede cambiarse en funcion al codigo
+        // LET -> tambien cambia su valor, pero su existencia, bloque de codigo, funcion
+        // const z = 23;
+        // // z = 12;
+        // document.write(z);
+        // VAR / LET
+                // function test1(){
+                //     let x = 23;
+                //     document.write("<br/>");
+                //     document.write(x);
+                //         function test2(){
+                //             let x = 10;
+                //             document.write("<br/>");
+                //             document.write(x);
+                //         }
+                //     test2();
+                // }
+                // // document.write(x);
+                // test1();
+        // CONDICIONALES
+            // var numero = 40;
+            // if (numero >= 70) {
+            //     document.write(" SI es mayor o igual");
+            // }   else {
+            //     document.write(" No cumple con la condicion");
+            // }
+            // document.write("<br/>");
+            // var resultado = (numero >= 70) ? "SI es mayor o igual" : "No cumple con la condicion";
+            // document.write(resultado);            
+
+            // var numero = 40;
+            // if (numero >= 90) {
+            //     document.write(" SI es mayor o igual");
+            // }   
+            // else if (numero > 70){
+            //     document.write(" Mayor a 70 ");
+            // } else {
+            //     document.write("No cumple con ninguna condicion");
+            // }
+
+            // switch (3){
+            //     case 1:
+            //         document.write("ES 1");
+            //         break;
+            //     case 2:
+            //         document.write("ES 2");
+            //         break;
+            //     case 3:
+            //         document.write("ES 3");
+            //         break;
+            //     default: 
+            //         document.write("ES POR DEFECTO");
+            //         break;
+            // }
+            //PROBLEMA 1
+            //Escribir un programa JS para obtener un carácter 
+            //del usuario y verificar si es vocal o consonante
+            var caracter = window.prompt("Ingrese un caracter");
+            switch (caracter){
+                case 'a':
+                case 'A':
+                    document.write("Es vocal");
+                    break;
+                case 'e':
+                case 'E':
+                    document.write("Es vocal");
+                    break;
+                case 'i':
+                case 'I':
+                    document.write("Es vocal");
+                    break;
+                case 'o':
+                case 'O':
+                    document.write("Es vocal");
+                    break;
+                case 'u':
+                case 'U':
+                    document.write("Es vocal");
+                    break;
+                default: 
+                    document.write("ES CONSONANTE");
+                    break;
+            }
+       
+    </script>
+</head>
+<body>
+    <script>
+        console.log("Dos");
+    </script>
+</body>
+</html>
