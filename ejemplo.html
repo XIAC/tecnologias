@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUCLES</title>
+</head>
+<body>
+    <script>
+        // FOR 
+        for( let i = 10; i>=1; i--){
+            document.write(i+" <br/>");
+        }
+        // for in
+        var estudiante  = {
+            nombre: "Juana",
+            apellido: "Humerez",
+            direccion: "Av. Blanco Galindo"
+        }
+        for (var propiedad in estudiante){
+            document.write(propiedad+" <br/>");
+            document.write(estudiante[propiedad]+" <br/>");
+
+        }
+        //For of
+        let colores = ['rojo','amarillo','verde', 'azul'];
+        for (var color of colores) {
+            document.write(color+" <br/>");
+        }
+        // while
+        var n = 0;
+        while (n <= 10) {
+            document.write(n+" <br/>");
+            n++;
+        }
+        // do while
+        var a = 10;
+        do {
+            document.write(a+" <br/>");
+            a--;
+        } while (a > 0);
+
+        // FUNCIONES
+        function funcionOperadores(numero1, numero2){
+            var num1 = numero1;
+            var num2 = numero2;
+            document.write(num1);
+            document.write(num2);
+            document.write("La suma es: "+(num1 + num2));
+            document.write("<br/>");
+            document.write("La multiplicacion es: "+(num1 * num2));
+            document.write("<br/>");
+            document.write("La division es: "+(num1 / num2));
+            document.write("<br/>");
+            document.write("La resta es: "+(num1 - num2));
+            document.write("<br/>");
+        }
+        funcionOperadores(20, 10);
+        //parametro
+        //argumento'
+        //PROPIEDADES
+// - raza: string;
+// color: string;
+// Nombre: string;
+// Edad: number;
+
+// METODOS
+// Comer()
+// Ronronear()
+// Jugar()
+// Dormir()
+
+        var gato = {
+            raza: "Persa",
+            color: "naranja",
+            nombre: "Garfield",
+            edad: 5,
+            dormir :  function (){
+                return "El gato esta durmiendo";
+            },
+            pelear :  function (){
+                return 10;
+            },
+            jugar :  function (){
+                return "El gato esta durmiendo";
+            }
+        }
+        document.write(gato);
+        console.log(gato);
+    </script>
+</body>
+</html>
