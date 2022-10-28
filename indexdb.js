@@ -12,8 +12,11 @@ dbConnection.onsuccess = () => {
 dbConnection.onupgradeneeded = (e) => {
     db = e.target.result;//elemento que nos devuelve
     console.log("Crear objetos de DB", db);
-    const coleccionObjetos = db.createObjectStore('persona', {
+    const coleccionPersona = db.createObjectStore('persona', {
         keyPath: 'idPersona'
+    });
+    const coleccionCompras = db.createObjectStore('compras', {
+        keyPath: 'idCompras'
     });
 }
 // El errorevento se activa IDBTransactioncuando una solicitud devuelve un error 

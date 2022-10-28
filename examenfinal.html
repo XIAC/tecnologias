@@ -50,18 +50,20 @@
                         </div>
                     </div>
                     <button type="button" onclick="guardar()"  class="btn btn-primary">Guardar</button>
+                    <button type="button" onclick="listar()"  class="btn btn-primary">Listar</button>
+                    <button type="button" onclick="editar()" class="btn btn-warning">Editar</button>
                 </form>
             </div>
             <!-- <div class="col-4">
                 texto 2
             </div> -->
             <div class="col-6">
-                <ul class="list-group">
-                    <li class="list-group-item">An item</li>
+                <ul class="list-group" id="mostrarLista">
+                    <!-- <li class="list-group-item">An item</li>
                     <li class="list-group-item">A second item</li>
                     <li class="list-group-item">A third item</li>
                     <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
+                    <li class="list-group-item">And a fifth one</li> -->
                 </ul>
             </div>
         </div>
@@ -69,7 +71,7 @@
 </body>
 </html>
 <script>
-    
+    var PersonaId = 0;
     function guardar(){
         //guardar la informacion
         var persona ={
@@ -81,6 +83,71 @@
         const objetoPersona = transaccion.objectStore('persona');
         const cargarInfo= objetoPersona.add(persona);
         console.log("Se ha guardado el objeto");
+        // ==============================
+        var compra ={
+            idPersona: persona['idPersona'],
+            idCompras: Math.floor(100000 + Math.random() * 900000)
+        }
+        var transaccion2 = db.transaction("compras", "readwrite");
+        const objetoCompras = transaccion2.objectStore('compras');
+        const cargarInfoCompras= objetoCompras.add(compra);
+        
+    }
+    function listar(){
+      var lista = document.getElementById("mostrarLista");
+      lista.innerHTML= "";
+      db = dbConnection.result;
+      // lectura de tablas
+      var transaccion = db.transaction("persona", "readonly");
+      const objeto = transaccion.objectStore('persona');
+      // iterar los elementos
+      const cursor = objeto.openCursor();
+      cursor.onsuccess = (e) =>{
+          const c = e.target.result;
+           if (c){
+              var parametro = {
+                idPersona: c.value['idPersona'],
+                nombre: c.value['nombre'],
+                apellido: c.value['apellido']
+              }
+              console.log(parametro);
+              // insertando en el html de UL, se realizo algunas concatenaciones adicionales
+              lista.innerHTML += "<li class='list-group-item'>"+c.value['idPersona']+'--'+c.value['nombre']+'--'+c.value['apellido']+"<button type='button' onclick='eliminar("+c.value['idPersona']+")' class='btn btn-danger'>Eliminar</button></li>&nbsp<button type='button' onclick='ver("+JSON.stringify(parametro)+")' class='btn btn-success'>Ver</button>";
+              c.continue();
+          } else {
+              console.log("no tiene datos");
+          }
+      }
+    }
+    function ver (persona){
+      PersonaId = persona['idPersona'];
+      document.getElementById('txtNombre').value = persona['nombre'];
+      document.getElementById('txtApellido').value = persona['apellido']
+    }
+    function editar(){
+      var persona ={
+            idPersona: PersonaId,
+            nombre: document.getElementById('txtNombre').value,
+            apellido: document.getElementById('txtApellido').value
+        }
+      var transaccion = db.transaction("persona", "readwrite");
+      const objeto = transaccion.objectStore('persona');
+      // insertar en el objeto
+      const actualizarInfo= objeto.put(persona);
+      if (actualizarInfo)
+          console.log("Se agrego con exito", actualizarInfo );
+    }
+    function eliminar(idPersona){
+      var transaccion = db.transaction("persona", "readwrite");
+      const objeto = transaccion.objectStore('persona');
+      // insertar en el objeto
+      const eliminado = objeto.delete(idPersona);
+      eliminado.onsuccess = () => {
+          listar();
+      }
+      eliminado.onerror = (error) => {
+          console.log(error);
+      }
     }
 
     // const insertar = (informacion) =>{
