@@ -7,6 +7,23 @@
     <title>canvas</title>
 </head>
 <body>
-    
+    <canvas id="micanvas" width="500px" height="500px"> 
+        tu navegador no acepta canvas
+    </canvas>
 </body>
 </html>
+<script>
+    var canvas = document.getElementById("micanvas");
+    var contexto = canvas.getContext("2d");
+    // cuadrados , rectangulos
+    contexto.fillStyle = "#cccddd"; // rellenar el cuadrado
+    // fillRect(x,y,width,height)
+    contexto.fillRect(110, 50, 150, 75);
+    contexto.strokeStyle = "red"; //color al border
+    contexto.strokeRect(20, 20, 150, 100); // dibujar un cuadrado 
+
+    contexto.strokeStyle = "blue"; //color al border
+    contexto.strokeRect(200, 20, 150, 100); // dibujar un cuadrado 
+
+    
+</script>
